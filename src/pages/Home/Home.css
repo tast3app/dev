@@ -1,0 +1,206 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: 
+        linear-gradient(
+            rgba(18, 32, 32, 1), /* Adjusted opacity for a softer blend */
+            rgba(24, 43, 43, 1) /* Adjusted opacity for a softer blend */
+        ),
+        repeating-linear-gradient(
+            45deg,
+            rgba(0, 77, 64, 0.1) 1px, /* Slightly increased opacity for more visibility */
+            rgba(0, 77, 64, 0.1) 3px,
+            transparent 2px,
+            transparent 8px
+        ),
+        url('home-background.jpg');
+    background-size: cover; /* Adjusts the background image size */
+    background-position: center; /* Centers the image */
+    color: #e0e6e6;
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    position: relative;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5); /* Increased shadow for depth */
+    overflow: hidden; /* Ensures no overflow from inner elements */
+}
+
+.home-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(144, 238, 144, 0.4), /* Increased opacity for more contrast */
+        transparent
+    );
+}
+
+.home-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(144, 238, 144, 0.2),
+        transparent
+    );
+}
+
+.home-header {
+    text-align: center;
+    margin-bottom: 150px; /* Increased spacing */
+}
+
+.home-header h1 {
+    font-size: 7rem;
+    font-weight: 400;
+    margin-bottom: 0px;
+    color: #ffffff;
+}
+
+.home-header p {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 100px; /* Increased spacing */
+}
+
+.home-button-section {
+    margin: 50px 0; /* Increased spacing */
+}
+
+.generate-meal-button {
+    padding: 8px 50px;               /* Adjusted padding for a more refined look */
+    font-size: 1.4rem;                /* Slightly smaller font size for elegance */
+    background-color: #2E3B31;        /* A deep, muted green for a classic feel */
+    color: #f8f8f8;                   /* Light, off-white text for contrast */
+    border: 2px solid #C1D4D0;        /* Soft, muted border color for sophistication */
+    border-radius: 30px;              /* Slightly reduced border radius */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Softer shadow for elegance */
+    position: relative;
+    overflow: hidden;
+    font-family: 'Georgia', serif;    /* Classic serif font for an old money feel */
+}
+
+/* Add a subtle glowing effect */
+.generate-meal-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    transition: all 0.6s ease;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Button hover effect */
+.generate-meal-button:hover {
+    background-color: #2A342A;        /* Darker, richer shade on hover */
+    transform: translateY(-2px);      /* Subtle lift effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+}
+
+/* Glow effect on hover */
+.generate-meal-button:hover::before {
+    transform: scale(1.5);            /* Expands the glow */
+    opacity: 0.5;                     /* Adjusted opacity for subtlety */
+}
+
+/* Ensure text appears above the glow effect */
+.generate-meal-button span {
+    position: relative;
+    z-index: 1;
+}
+
+.home-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    margin-top: 100px; /* Adjust this value as needed for more or less spacing */
+    padding: 6px 15px;
+}
+
+.search-bar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 1.3rem;
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.filters-button {
+    padding: 8px 12px;                       /* Slightly larger padding for a comfortable touch target */
+    background: linear-gradient(135deg, #ffffff, #f0f0f0); /* Subtle gradient for depth */
+    color: #333333;                          /* Darker text color for better contrast */
+    border: none;
+    border-radius: 20px;                     /* Increased border radius for a smoother, pill-like look */
+    font-size: 0.8rem;                       /* Slightly larger font for readability */
+    font-weight: 500;                        /* Bold text for emphasis */
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: all 0.3s ease, transform 0.1s; /* Longer transition for a smoother effect */
+    display: flex;
+    align-items: center;
+    gap: 6px;                                /* Space for an optional icon */
+}
+
+/* Hover effect */
+.filters-button:hover {
+    background: linear-gradient(135deg, #f9f9f9, #e8e8e8); /* Slightly darker gradient on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+    transform: translateY(-2px);               /* Small lift effect */
+}
+
+/* Optional icon style */
+.filters-button .icon {
+    font-size: 1.1rem;
+    color: #666666;                            /* Subtle color for icon */
+}
+
+
+.close-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.close-button:hover {
+    opacity: 1;
+}

@@ -1,12 +1,33 @@
-// src/pages/Home/Home.js
 import React from 'react';
-import RecipeList from '../../components/RecipeList/RecipeList'; // Assuming we’ll create a RecipeList component for displaying recipes
+import './Home.css';
+import { Search } from 'lucide-react';
+
 
 function Home() {
   return (
-    <div>
-      <h1>Welcome to Tasteful</h1>
-      <RecipeList /> {/* This will show a list of recipes */}
+    <div className="home-container">
+      {/* Close button */}
+      <button className="close-button">×</button>
+
+      {/* Top Section */}
+      <header className="home-header">
+        <h1>TasteFinder.</h1>
+        <p>Feed your soul, one bite at a time.</p>
+      </header>
+
+      {/* Middle Section */}
+      <div className="home-button-section">
+        <button className="generate-meal-button">Roll the Dice, Dine Delightfully</button>
+      </div>
+
+      {/* Bottom Section */}
+      <footer className="home-footer">
+        <div className="search-bar">
+          <Search className="search-icon" size={20} />
+          <input type="text" placeholder="Explore:" />
+          <button className="filters-button">Search Filters</button>
+        </div>
+      </footer>
     </div>
   );
 }

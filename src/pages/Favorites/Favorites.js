@@ -6,7 +6,7 @@ function Favorites() {
   return (
     <div>
       <h1>Your Favorite Recipes</h1>
-      <RecipeList favoritesOnly={true} /> {/* Display only favorites */}
+      <RecipeList matchesOnly={true} /> {/* Display only favorites */}
     </div>
   );
 }
