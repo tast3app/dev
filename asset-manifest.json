@@ -1,19 +1,23 @@
 {
   "files": {
     "main.css": "/dev/static/css/main.42fdcda1.chunk.css",
-    "main.js": "/dev/static/js/main.7a7bdf3e.chunk.js",
-    "main.js.map": "/dev/static/js/main.7a7bdf3e.chunk.js.map",
-    "runtime~main.js": "/dev/static/js/runtime~main.bb967cf0.js",
-    "runtime~main.js.map": "/dev/static/js/runtime~main.bb967cf0.js.map",
-    "static/js/2.a9fd0aae.chunk.js": "/dev/static/js/2.a9fd0aae.chunk.js",
-    "static/js/2.a9fd0aae.chunk.js.map": "/dev/static/js/2.a9fd0aae.chunk.js.map",
-    "static/js/3.fc5cbf83.chunk.js": "/dev/static/js/3.fc5cbf83.chunk.js",
-    "static/js/3.fc5cbf83.chunk.js.map": "/dev/static/js/3.fc5cbf83.chunk.js.map",
+    "main.js": "/dev/static/js/main.d193eb93.chunk.js",
+    "main.js.map": "/dev/static/js/main.d193eb93.chunk.js.map",
+    "runtime~main.js": "/dev/static/js/runtime~main.d60cb196.js",
+    "runtime~main.js.map": "/dev/static/js/runtime~main.d60cb196.js.map",
+    "static/js/2.1b2e98d5.chunk.js": "/dev/static/js/2.1b2e98d5.chunk.js",
+    "static/js/2.1b2e98d5.chunk.js.map": "/dev/static/js/2.1b2e98d5.chunk.js.map",
+    "static/js/3.69ba5426.chunk.js": "/dev/static/js/3.69ba5426.chunk.js",
+    "static/js/3.69ba5426.chunk.js.map": "/dev/static/js/3.69ba5426.chunk.js.map",
     "index.html": "/dev/index.html",
-    "precache-manifest.6e234bda00426205ca4fe18e8dd34579.js": "/dev/precache-manifest.6e234bda00426205ca4fe18e8dd34579.js",
+    "precache-manifest.a7f11d506c1aae72385b4d452463bd97.js": "/dev/precache-manifest.a7f11d506c1aae72385b4d452463bd97.js",
     "service-worker.js": "/dev/service-worker.js",
     "static/css/main.42fdcda1.chunk.css.map": "/dev/static/css/main.42fdcda1.chunk.css.map",
+    "static/media/beef-broccoli.jpg": "/dev/static/media/beef-broccoli.65cac053.jpg",
+    "static/media/french-onion-soup.jpg": "/dev/static/media/french-onion-soup.fc37e60d.jpg",
     "static/media/Home.css": "/dev/static/media/home-background.31cbe65e.jpg",
-    "static/media/spaghetti-bolognese.jpg": "/dev/static/media/spaghetti-bolognese.9811b06e.jpg"
+    "static/media/margherita-pizza.jpg": "/dev/static/media/margherita-pizza.482d4d10.jpg",
+    "static/media/spaghetti-bolognese.jpg": "/dev/static/media/spaghetti-bolognese.9811b06e.jpg",
+    "static/media/thai-green-curry.jpg": "/dev/static/media/thai-green-curry.654db623.jpg"
   }
 }
