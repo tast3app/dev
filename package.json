@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
-    "build": "start",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
@@ -43,6 +43,8 @@
   },
   "devDependencies": {
     "gh-pages": "^6.2.0",
+    "install": "^0.13.0",
+    "npm": "^10.9.0",
     "webpack": "^5.96.1",
     "webpack-cli": "^5.1.4"
   }
