@@ -1,14 +1,27 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import { Search } from 'lucide-react';
 
-
 function Home() {
+  const navigate = useNavigate();
+
+  // Function to handle generating a random recipe ID and navigation
+  const handleGenerateMeal = () => {
+    // Replace `0` with the maximum number of recipe IDs you have available
+    const randomId = Math.floor(Math.random() * 5) + 1; 
+    navigate(`/recipes/${randomId}`);
+  };
+
+  // // Function to handle generating a random recipe ID and navigation
+  // const handleSearchBar = () => {
+  //   // Replace `0` with the maximum number of recipe IDs you have available
+  //   const randomId = Math.floor(Math.random() * 5) + 1; 
+  //   navigate(`/recipes/${randomId}`);
+  // };
+
   return (
     <div className="home-container">
-      {/* Close button */}
-      <button className="close-button">×</button>
-
       {/* Top Section */}
       <header className="home-header">
         <h1>TasteFinder.</h1>
@@ -17,7 +30,9 @@ function Home() {
 
       {/* Middle Section */}
       <div className="home-button-section">
-        <button className="generate-meal-button">Roll the Dice, Dine Delightfully</button>
+        <button className="generate-meal-button" onClick={handleGenerateMeal}>
+          Roll the Dice, Dine Delightfully
+        </button>
       </div>
 
       {/* Bottom Section */}

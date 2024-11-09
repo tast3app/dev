@@ -186,21 +186,3 @@
     font-size: 1.1rem;
     color: #666666;                            /* Subtle color for icon */
 }
-
-
-.close-button {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: none;
-    border: none;
-    color: #ffffff;
-    font-size: 1.2rem;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 0.2s ease;
-}
-
-.close-button:hover {
-    opacity: 1;
-}
