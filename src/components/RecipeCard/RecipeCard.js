@@ -1,5 +1,9 @@
 // src/components/RecipeCard.js
-import recipeImage from './images/spaghetti-bolognese.jpg';
+import SpeghettiBolognese from './images/spaghetti-bolognese.jpg';
+import ThaiGreenCurry from './images/thai-green-curry.jpg';
+import ClassicFrenchOnionSoup from './images/french-onion-soup.jpg';
+import HomemadeMargheritaPizza from './images/margherita-pizza.jpg';
+import BeefandBroccoliStirFry from './images/beef-broccoli.jpg';
 
 // src/data/recipeData.js
 
@@ -7,7 +11,7 @@ const recipes = [
   {
     id: '1',
     title: 'Spaghetti Bolognese',
-    image: recipeImage,
+    image: SpeghettiBolognese,
     prepTime: '15 mins',
     cookTime: '45 mins',
     servings: 4,
@@ -43,7 +47,7 @@ const recipes = [
   {
     id: '2',
     title: 'Thai Green Curry',
-    image: '/images/thai-green-curry.jpg',
+    image: ThaiGreenCurry,
     prepTime: '20 mins',
     cookTime: '30 mins',
     servings: 4,
@@ -75,7 +79,7 @@ const recipes = [
   {
     id: '3',
     title: 'Classic French Onion Soup',
-    image: '/images/french-onion-soup.jpg',
+    image: ClassicFrenchOnionSoup,
     prepTime: '15 mins',
     cookTime: '1 hour 15 mins',
     servings: 6,
@@ -112,7 +116,7 @@ const recipes = [
   {
     id: '4',
     title: 'Homemade Margherita Pizza',
-    image: '/images/margherita-pizza.jpg',
+    image: HomemadeMargheritaPizza,
     prepTime: '30 mins',
     cookTime: '15 mins',
     servings: 2,
@@ -140,7 +144,7 @@ const recipes = [
   {
     id: '5',
     title: 'Beef and Broccoli Stir-Fry',
-    image: '/images/beef-broccoli.jpg',
+    image: BeefandBroccoliStirFry,
     prepTime: '20 mins',
     cookTime: '15 mins',
     servings: 4,
