@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import RecipePage from './pages/RecipePage/RecipePage';
-import AdminPage from './pages/Admin/Admin';
+import AddRecipePage from './pages/AddRecipe/AddRecipe';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Route path="/recipes" element={<RecipePage />}>
           <Route path=":id" element={<RecipePage />} />
         </Route>
-        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/add" element={<AddRecipePage />} />
       </Routes>
     </Router>
   );

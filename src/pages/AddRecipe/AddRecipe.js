@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import AdminAddRecipe from '../../components/Admin/AdminAddRecipe';
-import './Admin.css';
+import AdminAddRecipe from '../../components/AddRecipe/AddRecipe';
+import './AddRecipe.css';
 
 const AdminPage = () => {
   const [recipes, setRecipes] = useState([]);
