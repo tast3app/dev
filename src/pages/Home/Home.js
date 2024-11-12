@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import { Search } from 'lucide-react';
-import recipes from '../../components/RecipeCard/RecipeCard';
+import recipes from '../../components/RecipeList/RecipeList';
 
 const Home = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleGenerateMeal = () => {
-    const randomId = Math.floor(Math.random() * 5) + 1;
+    const allRecipes = recipes;
+    const randomIndex = Math.floor(Math.random() * allRecipes.length);
+    const randomRecipe = allRecipes[randomIndex];
+    const randomId = randomRecipe.id; // Assuming each recipe has a 'id' field with a UUID value
     navigate(`/recipes/${randomId}`);
   };
 

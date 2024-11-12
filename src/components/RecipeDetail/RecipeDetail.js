@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import './RecipeDetails.css'; // Import the CSS file
 import { Share2, Heart, Clock, ChefHat, Utensils } from 'lucide-react';
-import recipes from '../RecipeCard/RecipeCard'; // Import the recipes array
+import recipes from '../RecipeList/RecipeList'; // Import the recipes array
 
 function RecipeDetails() {
   const { id } = useParams();
