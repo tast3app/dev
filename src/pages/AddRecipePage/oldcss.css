@@ -1,0 +1,179 @@
+/* Form container styling */
+form {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Label styling */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+/* Input styling */
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Styling for read-only fields (like the ID field) */
+input[readonly] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Button styling */
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+/* Ingredient, Instruction, and Tag lists */
+.ingredient-list,
+.instruction-list,
+.tag-list {
+  margin-bottom: 20px;
+}
+
+.ingredient-item,
+.instruction-item,
+.tag-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  background-color: #fff;
+}
+
+.ingredient-item span,
+.instruction-item span,
+.tag-item span {
+  flex: 1;
+  font-size: 14px;
+}
+
+/* Remove button styling */
+.remove button {
+  background: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  margin-left: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 5px; /* Add consistent spacing between items */
+}
+
+.remove button:hover {
+  background: #e60000;
+}
+
+/* Add button styling with improved spacing */
+
+button {
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px; /* Space below the button */
+  margin-left: 5px; /* Space between button and input field */
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Drag and drop styles */
+.instruction-list {
+  border: 1px dashed #ddd;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.instruction-item {
+  padding: 10px;
+  background-color: #f9f9f9;
+  margin-bottom: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.instruction-item {
+  background-color: #e0e0ff;
+  border-color: #4a90e2;
+}
+
+/* Ingredient and tag input */
+.ingredient-list input,
+.tag-list input {
+  width: calc(100% - 95px); /* Adjust width to make space for button */
+  padding: 8px;
+  margin-right: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Placeholder color */
+::placeholder {
+  color: #aaa;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}

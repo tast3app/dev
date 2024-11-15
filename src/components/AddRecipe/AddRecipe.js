@@ -1,8 +1,8 @@
-// AdminAddRecipe.js
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
+// Original options arrays remain the same
 const cuisineOptions = [
   'American', 'Italian', 'Chinese', 'Mexican', 'Japanese', 'Indian', 'Thai', 
   'Mediterranean', 'French', 'Greek', 'Spanish', 'Vietnamese', 'Brazilian', 
@@ -34,6 +34,7 @@ const AdminAddRecipe = ({ onAddRecipe }) => {
     tags: [],
   });
 
+  // All handlers remain the same as before, just updating the return JSX
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRecipe((prevRecipe) => ({
@@ -42,6 +43,7 @@ const AdminAddRecipe = ({ onAddRecipe }) => {
     }));
   };
 
+  // Other handlers remain unchanged...
   const handleIngredientAdd = (ingredient) => {
     setRecipe((prevRecipe) => ({
       ...prevRecipe,
@@ -101,120 +103,153 @@ const AdminAddRecipe = ({ onAddRecipe }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddRecipe(recipe);
-    setRecipe({
-      id: uuidv4(),
-      title: '',
-      image: '/default-recipe-image.jpg',
-      prepTime: '',
-      cookTime: '',
-      servings: '',
-      difficulty: '',
-      cuisine: '',
-      ingredients: [],
-      instructions: [],
-      tags: [],
-    });
+    if (isFormValid) {
+      onAddRecipe(recipe);
+      setRecipe({
+        id: uuidv4(),
+        title: '',
+        image: '/default-recipe-image.jpg',
+        prepTime: '',
+        cookTime: '',
+        servings: '',
+        difficulty: '',
+        cuisine: '',
+        ingredients: [],
+        instructions: [],
+        tags: [],
+      });
+    }
   };
 
   const isFormValid = recipe.title && recipe.prepTime && recipe.cookTime && recipe.servings && recipe.difficulty && recipe.cuisine && recipe.ingredients.length > 0 && recipe.instructions.length > 0;
 
   return (
-    <div>
-      <h2>Add New Recipe</h2>
-      <form onSubmit={handleSubmit}>
-        {/* Input fields */}
-        <label>ID:</label>
-        <input name="id" value={recipe.id} readOnly />
+    <div className="container py-4">
+      <h2 className="mb-4">Add New Recipe</h2>
+      <form onSubmit={handleSubmit} noValidate>
+        <div className="row g-3">
+          <div className="col-12">
+            <label className="form-label">ID (Auto-generated):</label>
+            <input 
+              className="form-control bg-light" 
+              name="id" 
+              value={recipe.id} 
+              readOnly 
+              disabled
+              style={{ cursor: 'not-allowed' }}
+            />
+          </div>
 
-        <label>Title:</label>
-        <input name="title" value={recipe.title} onChange={handleChange} required />
+          <div className="col-12">
+            <label className="form-label">Title:</label>
+            <input 
+              type="text" 
+              className="form-control" 
+              name="title" 
+              value={recipe.title} 
+              onChange={handleChange} 
+            />
+          </div>
 
-        <label>Prep Time:</label>
-        <select name="prepTime" value={recipe.prepTime} onChange={handleChange} required>
-          <option value="">Select prep time</option>
-          {timeOptions.map((time, index) => (
-            <option key={index} value={time}>
-              {time}
-            </option>
-          ))}
-        </select>
+          <div className="col-md-4">
+            <label className="form-label">Prep Time:</label>
+            <select className="form-select" name="prepTime" value={recipe.prepTime} onChange={handleChange}>
+              <option value="">Select prep time</option>
+              {timeOptions.map((time, index) => (
+                <option key={index} value={time}>{time}</option>
+              ))}
+            </select>
+          </div>
 
-        <label>Cook Time:</label>
-        <select name="cookTime" value={recipe.cookTime} onChange={handleChange} required>
-          <option value="">Select cook time</option>
-          {timeOptions.map((time, index) => (
-            <option key={index} value={time}>
-              {time}
-            </option>
-          ))}
-        </select>
+          <div className="col-md-4">
+            <label className="form-label">Cook Time:</label>
+            <select className="form-select" name="cookTime" value={recipe.cookTime} onChange={handleChange}>
+              <option value="">Select cook time</option>
+              {timeOptions.map((time, index) => (
+                <option key={index} value={time}>{time}</option>
+              ))}
+            </select>
+          </div>
 
-        <label>Servings:</label>
-        <select name="servings" value={recipe.servings} onChange={handleChange} required>
-          <option value="">Select servings</option>
-          {servingOptions.map((serving, index) => (
-            <option key={index} value={serving}>
-              {serving}
-            </option>
-          ))}
-        </select>
+          <div className="col-md-4">
+            <label className="form-label">Servings:</label>
+            <select className="form-select" name="servings" value={recipe.servings} onChange={handleChange}>
+              <option value="">Select servings</option>
+              {servingOptions.map((serving, index) => (
+                <option key={index} value={serving}>{serving}</option>
+              ))}
+            </select>
+          </div>
 
-        <label>Difficulty:</label>
-        <select name="difficulty" value={recipe.difficulty} onChange={handleChange} required>
-          <option value="">Select a difficulty</option>
-          {difficultyOptions.map((option, index) => (
-            <option key={index} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
+          <div className="col-md-6">
+            <label className="form-label">Difficulty:</label>
+            <select className="form-select" name="difficulty" value={recipe.difficulty} onChange={handleChange}>
+              <option value="">Select a difficulty</option>
+              {difficultyOptions.map((option, index) => (
+                <option key={index} value={option}>{option}</option>
+              ))}
+            </select>
+          </div>
 
-        <label>Cuisine:</label>
-        <select name="cuisine" value={recipe.cuisine} onChange={handleChange} required>
-          <option value="">Select a cuisine</option>
-          {cuisineOptions.map((cuisine, index) => (
-            <option key={index} value={cuisine}>
-              {cuisine}
-            </option>
-          ))}
-        </select>
+          <div className="col-md-6">
+            <label className="form-label">Cuisine:</label>
+            <select className="form-select" name="cuisine" value={recipe.cuisine} onChange={handleChange}>
+              <option value="">Select a cuisine</option>
+              {cuisineOptions.map((cuisine, index) => (
+                <option key={index} value={cuisine}>{cuisine}</option>
+              ))}
+            </select>
+          </div>
 
-        <label>Ingredients:</label>
-        <IngredientList
-          ingredients={recipe.ingredients}
-          onAdd={handleIngredientAdd}
-          onRemove={handleIngredientRemove}
-          measurementOptions={measurementOptions}
-        />
+          <div className="col-12">
+            <label className="form-label">Ingredients:</label>
+            <IngredientList
+              ingredients={recipe.ingredients}
+              onAdd={handleIngredientAdd}
+              onRemove={handleIngredientRemove}
+              measurementOptions={measurementOptions}
+            />
+          </div>
 
-        <label>Instructions:</label>
-        <InstructionList
-          instructions={recipe.instructions}
-          onAdd={handleInstructionAdd}
-          onRemove={handleInstructionRemove}
-          onReorder={handleInstructionReorder}
-        />
+          <div className="col-12">
+            <label className="form-label">Instructions:</label>
+            <InstructionList
+              instructions={recipe.instructions}
+              onAdd={handleInstructionAdd}
+              onRemove={handleInstructionRemove}
+              onReorder={handleInstructionReorder}
+            />
+          </div>
 
-        <label>Tags:</label>
-        <TagList
-          tags={recipe.tags}
-          onAdd={handleTagAdd}
-          onRemove={handleTagRemove}
-        />
+          <div className="col-12">
+            <label className="form-label">Tags:</label>
+            <TagList
+              tags={recipe.tags}
+              onAdd={handleTagAdd}
+              onRemove={handleTagRemove}
+            />
+          </div>
 
-        <button type="submit" disabled={!isFormValid}>
-          Add Recipe
-        </button>
+          <div className="col-12">
+            <button 
+              type="submit" 
+              className="btn btn-primary w-100" 
+              disabled={!isFormValid}
+            >
+              Add Recipe
+            </button>
+          </div>
+        </div>
       </form>
     </div>
   );
 };
 
 const IngredientItem = ({ ingredient, onRemove }) => (
-  <div>
-    <span>{ingredient.amount} {ingredient.unit}</span> <span>{ingredient.name}</span>
-    <button onClick={onRemove}>Remove</button>
+  <div className="d-flex align-items-center mb-2">
+    <span className="me-2">{ingredient.amount} {ingredient.unit}</span>
+    <span className="me-auto">{ingredient.name}</span>
+    <button className="btn btn-outline-danger btn-sm" onClick={onRemove}>Remove</button>
   </div>
 );
 
@@ -225,7 +260,31 @@ const IngredientList = ({ ingredients, onAdd, onRemove, measurementOptions }) =>
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      onAdd({ name: ingredientName, amount: ingredientAmount, unit: ingredientUnit });
+      e.preventDefault();
+      if (isValidInput()) {
+        handleButtonClick();
+      }
+    }
+  };
+
+  const isValidInput = () => {
+    return ingredientName.trim() && !isNaN(ingredientAmount) && ingredientUnit;
+  };
+
+  const handleAmountChange = (e) => {
+    const value = e.target.value;
+    if (value === '' || (!isNaN(value) && value.match(/^\d*\.?\d*$/))) {
+      setIngredientAmount(value);
+    }
+  };
+
+  const handleButtonClick = () => {
+    if (isValidInput()) {
+      onAdd({
+        name: ingredientName.trim(),
+        amount: parseFloat(ingredientAmount),
+        unit: ingredientUnit
+      });
       setIngredientName('');
       setIngredientAmount('');
       setIngredientUnit('');
@@ -233,55 +292,79 @@ const IngredientList = ({ ingredients, onAdd, onRemove, measurementOptions }) =>
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={ingredientName}
-        onChange={(e) => setIngredientName(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="Ingredient name"
-      />
-      <input
-        type="text"
-        value={ingredientAmount}
-        onChange={(e) => setIngredientAmount(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="Amount"
-      />
-      <select
-        value={ingredientUnit}
-        onChange={(e) => setIngredientUnit(e.target.value)}
-        onKeyDown={handleKeyDown}
-      >
-        <option value="">Unit</option>
-        {measurementOptions.map((option, index) => (
-          <option key={index} value={option}>
-            {option}
-          </option>
+    <div className="mb-3">
+      <div className="row g-2 mb-3">
+        <div className="col-5">
+          <input
+            type="text"
+            className="form-control"
+            value={ingredientName}
+            onChange={(e) => setIngredientName(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Ingredient name"
+          />
+        </div>
+        <div className="col-2">
+          <input
+            type="text"
+            className="form-control"
+            value={ingredientAmount}
+            onChange={handleAmountChange}
+            onKeyDown={handleKeyDown}
+            placeholder="Amount"
+          />
+        </div>
+        <div className="col-3">
+          <select
+            className="form-select"
+            value={ingredientUnit}
+            onChange={(e) => setIngredientUnit(e.target.value)}
+          >
+            <option value="">Unit</option>
+            {measurementOptions.map((option, index) => (
+              <option key={index} value={option}>{option}</option>
+            ))}
+          </select>
+        </div>
+        <div className="col-2">
+          <button 
+            className="btn btn-primary w-100" 
+            onClick={handleButtonClick}
+            disabled={!isValidInput()}
+          >
+            Add
+          </button>
+        </div>
+      </div>
+      <div className="list-group">
+        {ingredients.map((ingredient, index) => (
+          <div key={index} className="list-group-item">
+            <IngredientItem
+              ingredient={ingredient}
+              onRemove={() => onRemove(index)}
+            />
+          </div>
         ))}
-      </select>
-      <button onClick={handleKeyDown}>Add Ingredient</button>
-      {ingredients.map((ingredient, index) => (
-        <IngredientItem
-          key={index}
-          ingredient={ingredient}
-          onRemove={() => onRemove(index)}
-        />
-      ))}
+      </div>
     </div>
   );
 };
 
 const InstructionItem = ({ instruction, index, onRemove }) => (
   <Draggable draggableId={`instruction-${index}`} index={index}>
-    {(provided) => (
+    {(provided, snapshot) => (
       <div
         ref={provided.innerRef}
         {...provided.draggableProps}
         {...provided.dragHandleProps}
+        className={`list-group-item d-flex align-items-center ${snapshot.isDragging ? 'bg-light' : ''}`}
+        style={{
+          ...provided.draggableProps.style,
+          cursor: 'grab'
+        }}
       >
-        <span>{instruction}</span>
-        <button onClick={() => onRemove(index)}>Remove</button>
+        <span className="me-auto">{instruction}</span>
+        <button className="btn btn-outline-danger btn-sm" onClick={() => onRemove(index)}>Remove</button>
       </div>
     )}
   </Draggable>
@@ -291,39 +374,52 @@ const InstructionList = ({ instructions, onAdd, onRemove, onReorder }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleAdd = () => {
-    onAdd(inputValue.trim());
-    setInputValue('');
+    if (inputValue.trim()) {
+      onAdd(inputValue.trim());
+      setInputValue('');
+    }
   };
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
+      e.preventDefault();
       handleAdd();
     }
   };
 
-  const handleDragEnd = (result) => {
-    onReorder(result);
-  };
-
   return (
-    <div>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="Enter an instruction"
-      />
-      <button onClick={handleAdd}>Add Instruction</button>
-      <DragDropContext onDragEnd={handleDragEnd}>
+    <div className="mb-3">
+      <div className="input-group mb-3">
+        <input
+          type="text"
+          className="form-control"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Enter an instruction"
+        />
+        <button 
+          className="btn btn-primary" 
+          onClick={handleAdd}
+          disabled={!inputValue.trim()}
+        >
+          Add Instruction
+        </button>
+      </div>
+      <DragDropContext onDragEnd={onReorder}>
         <Droppable droppableId="instructions">
           {(provided) => (
-            <div {...provided.droppableProps} ref={provided.innerRef}>
+            <div 
+              className="list-group" 
+              {...provided.droppableProps} 
+              ref={provided.innerRef}
+              style={{ minHeight: '50px' }}
+            >
               {instructions.map((instruction, index) => (
                 <InstructionItem
                   key={`instruction-${index}`}
                   index={index}
-                  instruction={instruction}
+                  instruction={`${index + 1}. ${instruction}`}
                   onRemove={onRemove}
                 />
               ))}
@@ -337,43 +433,57 @@ const InstructionList = ({ instructions, onAdd, onRemove, onReorder }) => {
 };
 
 const TagItem = ({ tag, onRemove }) => (
-  <div>
-    <span>{tag}</span>
-    <button onClick={onRemove}>Remove</button>
-  </div>
+  <span className="badge bg-secondary me-2 mb-2">
+    {tag}
+    <button
+      type="button"
+      className="btn-close ms-2"
+      onClick={onRemove}
+      aria-label="Remove tag"
+      style={{ fontSize: '0.5rem' }}
+    ></button>
+  </span>
 );
 
 const TagList = ({ tags, onAdd, onRemove }) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleAdd = () => {
-    onAdd(inputValue.trim());
-    setInputValue('');
+    if (inputValue.trim()) {
+      onAdd(inputValue.trim());
+      setInputValue('');
+    }
   };
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
+      e.preventDefault();
       handleAdd();
     }
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="Enter a tag"
-      />
-      <button onClick={handleAdd}>Add Tag</button>
-      {tags.map((tag, index) => (
-        <TagItem
-          key={index}
-          tag={tag}
-          onRemove={() => onRemove(index)}
+    <div className="mb-3">
+      <div className="input-group mb-3">
+        <input
+          type="text"
+          className="form-control"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={handleKeyDown}
+          placeholder="Enter a tag"
         />
-      ))}
+        <button className="btn btn-primary" onClick={handleAdd}>Add Tag</button>
+      </div>
+      <div className="d-flex flex-wrap">
+        {tags.map((tag, index) => (
+          <TagItem
+            key={index}
+            tag={tag}
+            onRemove={() => onRemove(index)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

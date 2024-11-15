@@ -2,7 +2,9 @@ import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import RecipePage from './pages/RecipePage/RecipePage';
-import AddRecipePage from './pages/AddRecipe/AddRecipe';
+import AddRecipePage from './pages/AddRecipePage/AddRecipePage';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function App() {
   return (

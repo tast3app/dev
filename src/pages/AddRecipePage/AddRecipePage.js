@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import AdminAddRecipe from '../../components/AddRecipe/AddRecipe';
-import './AddRecipe.css';
+import AddRecipe from '../../components/AddRecipe/AddRecipe';
 
 const AdminPage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -11,8 +10,7 @@ const AdminPage = () => {
 
   return (
     <div>
-      <h1>Admin Dashboard</h1>
-      <AdminAddRecipe onAddRecipe={addRecipe} />
+      <AddRecipe onAddRecipe={addRecipe} />
       {/* You could render recipes or manage them here */}
     </div>
   );
