@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import RecipePage from './pages/RecipePage/RecipePage';
 import AddRecipePage from './pages/AddRecipePage/AddRecipePage';
@@ -11,7 +11,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/recipes" element={<RecipePage />}>
+        <Route path="/recipes">
+          <Route index element={<RecipePage />} />
           <Route path=":id" element={<RecipePage />} />
         </Route>
         <Route path="/add" element={<AddRecipePage />} />
